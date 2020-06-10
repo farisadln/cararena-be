@@ -6,7 +6,7 @@ module.exports = app => {
 
     router.get('/review', general.findCarReview);
 
-    router.get('/:id', general.findById);
+    router.get('/review/:id', general.findById);
 
     app.use('/api/general', router);
 

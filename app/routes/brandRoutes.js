@@ -4,7 +4,11 @@ module.exports = app => {
 
     const router = require("express").Router();
 
+    router.post("/", brand.create);
+
     router.get("/cars", brand.findAll);
+
+    router.get("/" ,brand.findBrans);
 
     router.get("/cars/:createdAt", brand.findAllByDate);
 

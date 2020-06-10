@@ -35,7 +35,7 @@ exports.findGeneral =  (req,res) => {
         .catch(err => {
             res.status(500).send({
                 message:
-                    err.message || "Some error occurred while retrieving brand."
+                    err.message || "Some error occurred while retrieving general."
             });
         });
 };
