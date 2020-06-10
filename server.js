@@ -51,6 +51,7 @@ require('./app/routes/userRoutes')(app);
 require('./app/routes/generalRoutes')(app);
 require('./app/routes/brandRoutes')(app);
 require('./app/routes/reviewRoutes')(app);
+require('./app/routes/backgroundRoutes')(app)
 
 
 
