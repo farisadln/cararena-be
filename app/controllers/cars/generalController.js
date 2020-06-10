@@ -97,6 +97,11 @@ exports.findById =  (req, res) => {
             }
             return  res.json(_.uniqWith(arr_response, _.isEqual));
         })
+        .catch(err => {
+            res.status(500).send({
+                message: "Error retrieving Tutorial with id=" + id
+            });
+    });
 };
 
 
