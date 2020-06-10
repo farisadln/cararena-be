@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2020 at 03:02 PM
+-- Generation Time: Jun 10, 2020 at 03:46 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -34,6 +34,13 @@ CREATE TABLE `background` (
   `url_img3` varchar(255) DEFAULT '-',
   `createdAt` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `background`
+--
+
+INSERT INTO `background` (`id`, `url_img1`, `url_img2`, `url_img3`, `createdAt`) VALUES
+(1, 'https://d2pa5gi5n2e1an.cloudfront.net/webp/service/id/images/article/10292_ID/LMY_summary.jpg', 'https://d2pa5gi5n2e1an.cloudfront.net/webp/service/id/images/article/10280_ID/LMY_summary.jpg', 'https://d2pa5gi5n2e1an.cloudfront.net/webp/service/id/images/article/10270_ID/LMY_summary.jpg', '2020-06-10');
 
 -- --------------------------------------------------------
 
@@ -127,6 +134,13 @@ CREATE TABLE `review` (
   `createdAt` date DEFAULT NULL,
   `generalId` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `review`
+--
+
+INSERT INTO `review` (`id`, `name`, `review`, `createdAt`, `generalId`) VALUES
+(1, 'fall', 'bagus kok', '2020-06-10', 1);
 
 -- --------------------------------------------------------
 
@@ -311,7 +325,7 @@ ALTER TABLE `userRole`
 -- AUTO_INCREMENT for table `background`
 --
 ALTER TABLE `background`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `brand`
@@ -335,7 +349,7 @@ ALTER TABLE `imgCar`
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `specification`
