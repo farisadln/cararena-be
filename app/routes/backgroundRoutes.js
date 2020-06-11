@@ -7,9 +7,11 @@ module.exports = app => {
 
     router.post("/", backgrounds.create);
 
-
     router.get("/", backgrounds.findAll);
 
+    router.put("/:id", backgrounds.update);
+
+    router.delete("/:id", backgrounds.delete);
 
     app.use('/api/backgrounds', router);
 };

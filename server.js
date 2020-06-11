@@ -48,10 +48,12 @@ app.get("/", (req, res) => {
 // routes
 require('./app/routes/authRoutes')(app);
 require('./app/routes/userRoutes')(app);
-require('./app/routes/generalRoutes')(app);
+require('./app/routes/backgroundRoutes')(app);
+require('./app/routes/imgCarRoutes')(app);
 require('./app/routes/brandRoutes')(app);
+require('./app/routes/generalRoutes')(app);
+
 require('./app/routes/reviewRoutes')(app);
-require('./app/routes/backgroundRoutes')(app)
 
 
 

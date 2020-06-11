@@ -4,9 +4,13 @@ module.exports = app => {
 
     const router = require("express").Router();
 
-    router.get('/review', general.findCarReview);
+    router.post("/", general.create);
 
-    router.get('/review/:id', general.findById);
+    router.get("/", general.findGeneral);
+
+    router.put("/:id", general.update);
+
+    router.delete("/:id", general.delete);
 
     app.use('/api/general', router);
 

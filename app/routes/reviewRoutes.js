@@ -15,7 +15,6 @@ module.exports = app => {
 
     router.delete('/:id', review.delete);
 
-
     app.use('/api/review', router);
 
 };
