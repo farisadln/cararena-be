@@ -73,7 +73,7 @@ exports.signin = (req, res) =>{
               }
 
               let data = authorities[0]
-              console.log(data)
+              // console.log(data)
 
               res.status(200).send({
                   id: user.id,
