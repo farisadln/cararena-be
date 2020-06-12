@@ -1,6 +1,6 @@
 const db = require("../models");
 const authConf = require("../config/authConfig");
-const Sequelize = require('sequelize');
+const _ = require("lodash")
 const User = db.user;
 const Role = db.role;
 
@@ -68,17 +68,25 @@ exports.signin = (req, res) =>{
           let authorities = [];
           user.getRole().then(role => {
               for (let i = 0; i < role.length; i ++) {
+
                   authorities.push("ROLE_" + role[i].name.toUpperCase());
               }
+
+              let data = authorities[0]
+              console.log(data)
+
               res.status(200).send({
                   id: user.id,
                   username: user.username,
                   email: user.email,
+                  roles: data,
                   accessToken: token
               });
           });
+
       })
       .catch(err => {
           res.status(500).send({ message: err.message });
       });
+
 };

@@ -3,31 +3,32 @@ const authConf = require("../config/authConfig");
 const db = require("../models");
 const User = db.user;
 
+
 verifyToken = (req, res, next) => {
-    let token = req.header["x-access-token"];
+    let token = req.headers["x-access-token"];
 
     if (!token) {
         return res.status(403).send({
-            message : "No token provided!"
+            message: "No token provided!"
         });
     }
 
-    jwt.verify(token, authConf.secret, (err, decode) => {
+    jwt.verify(token, authConf.secret, (err, decoded) => {
         if (err) {
             return res.status(401).send({
-                message : "Unauthorized!"
+                message: "Unauthorized!"
             });
         }
-        req.userId = decode.id;
-        next()
-    })
+        req.userId = decoded.id;
+        next();
+    });
 };
 
 isAdmin = (req, res, next) => {
     User.findByPk(req.userId).then(user => {
-        user.getRole().then(role => {
-            for (let i = 0; i < role.length; i++) {
-                if (role[i].name === "admin") {
+        user.getRole().then(roles => {
+            for (let i = 0; i < roles.length; i++) {
+                if (roles[i].name === "admin") {
                     next();
                     return;
                 }
