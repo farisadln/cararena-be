@@ -4,7 +4,7 @@ const Op = db.sequelize.Op;
 
 exports.create = async (req,res)=>{
 
-    const background = Background ({
+    const background = new Background ({
         url_img1: req.body.url_img1,
         url_img2: req.body.url_img2,
         url_img3: req.body.url_img3
@@ -59,6 +59,12 @@ exports.update = async (req, res) =>{
         res.status(500)
             .send(err)
     })
+
+};
+
+exports.findOne = (req, res) => {
+    const id = req.params.id;
+
 
 };
 
