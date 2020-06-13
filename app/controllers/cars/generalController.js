@@ -87,7 +87,7 @@ exports.findById =  (req, res) => {
                 let objek_car = {};
 
                     objek_car["id"] = data[i].id,
-                    objek_car["id_review"] = data[i].review.id,
+                        objek_car["type"] = data[i].type,
                     objek_car["name"] = data[i].review.name,
                     objek_car["review"] = data[i].review.review,
                     objek_car["createAt"] = data[i].review.createdAt
