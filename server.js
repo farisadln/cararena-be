@@ -52,7 +52,7 @@ require('./app/routes/backgroundRoutes')(app);
 require('./app/routes/imgCarRoutes')(app);
 require('./app/routes/brandRoutes')(app);
 require('./app/routes/generalRoutes')(app);
-
+require('./app/routes/specificationRoutes')(app);
 require('./app/routes/reviewRoutes')(app);
 
 

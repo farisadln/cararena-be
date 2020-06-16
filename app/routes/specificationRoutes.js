@@ -6,7 +6,7 @@ module.exports = app => {
 
     router.post('/', spec.create);
 
-    router.get('/', spec.findAll());
+    router.get('/', spec.findAll);
 
     router.put('/:id', spec.update);
 
