@@ -47,6 +47,20 @@ exports.findBrans = async (req,res) => {
         });
 };
 
+exports.findBransId = async (req,res) => {
+    const id = req.params.id;
+    console.log(id)
+    Brand.findByPk(id)
+        .then(data => {
+            res.json(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while retrieving brand."
+            });
+        });
+};
 
 exports.findAllByDate =  (req, res) => {
     const createdAt = req.params.createdAt;
