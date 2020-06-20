@@ -10,6 +10,8 @@ module.exports = app => {
 
     router.get("/" ,brand.findBrans);
 
+    router.delete("/:id" ,brand.delete);
+
     router.get("/cars/:createdAt", brand.findAllByDate);
 
     app.use('/api/brand', router);
