@@ -38,6 +38,45 @@ exports.signup = (req, res) => {
   });
 };
 
+
+exports.findUser =  (req,res) => {
+    const username = req.params.username;
+    console.log(username)
+    User.findOne({ where:{username}})
+        .then(data => {
+            res.json(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while retrieving general."
+            });
+        });
+};
+
+exports.changePassword = async (req, res) =>{
+
+    const username = req.params.username;
+    console.log(username)
+    User.update({ password: bcrypt.hashSync(req.body.password, 8)}, {
+        where : {username:username}
+    })
+        .then(num => {
+            if (num == 1 ){
+                res.send({
+                    message : "password was updated"
+                });
+            } else {
+                res.send({
+                    message : `Cannot update password with username=${username}. username was not found!`
+                })
+            }
+        }).catch(err => {
+        res.status(500)
+            .send(err)
+    })
+
+};
 exports.signin = (req, res) =>{
   User.findOne({
       where: {
