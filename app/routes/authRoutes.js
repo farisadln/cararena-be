@@ -25,5 +25,7 @@ module.exports = function(app) {
 
     app.get("/api/auth/user/:username", controller.findUser);
 
+    app.get("/api/auth/user", controller.findAll)
+
 
 };

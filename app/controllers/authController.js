@@ -38,7 +38,21 @@ exports.signup = (req, res) => {
   });
 };
 
+exports.findAll= (req,res)=>{
+    const username = req.query.username;
+    let condition = username ? { username: { [Op.like]: `%${username}%` } } : null;
 
+    User.findAll({ where: condition })
+        .then(data => {
+            res.json(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while retrieving general."
+            });
+        });
+}
 exports.findUser =  (req,res) => {
     const username = req.params.username;
     console.log(username)
