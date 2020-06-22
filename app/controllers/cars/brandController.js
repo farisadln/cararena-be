@@ -62,6 +62,73 @@ exports.findBransId = async (req,res) => {
         });
 };
 
+exports.findOne = (req,res) =>{
+    const id = req.params.id;
+    console.log(id)
+
+    Brand.findAll({
+        include:[{model:
+            General ,
+            where :{id}, include:
+                [{model:
+                    Specification,
+                    include:
+                        [{model:
+                            ImgCar}]
+                }]
+
+        }]
+    })
+        .then(data => {
+            let arr_response = [];
+            for (i = 0; i < data.length; i++) {
+                let objek_car = {};
+                    objek_car["id"] = data[i].general.id,
+                    objek_car["id_brand"] = data[i].id,
+                    objek_car["car_brand"] = data[i].carBrand,
+                    objek_car["logo_url"] = data[i].logoUrl,
+
+                    objek_car["type"] = data[i].general.type,
+                    objek_car["harga_otr"] = data[i].general.hargaOtr,
+                    objek_car["createAt"] = data[i].general.createdAt,
+                    objek_car["kapasistasMesin"] = data[i].general.specification.kapasistasMesin,
+                    objek_car["jmlSilinder"] = data[i].general.specification.jmlSilinder,
+                    objek_car["jmlKatup"] = data[i].general.specification.jmlKatup,
+                    objek_car["maxTenaga"] = data[i].general.specification.maxTenaga,
+                    objek_car["maxTenaga"] = data[i].general.specification.maxTorsi,
+                    objek_car["jenisBahanBakar"] = data[i].general.specification.jenisBahanBakar,
+                    objek_car["kapasitasBahanBakar"] = data[i].general.specification.kapasitasBahanBakar,
+                    objek_car["suspensiDepan"] = data[i].general.specification.suspensiDepan,
+                    objek_car["banAspekRasio"] = data[i].general.specification.banAspekRasio,
+                    objek_car["banAspekRasio"] = data[i].general.specification.banDiameter,
+                    objek_car["suspensiBelakang"] = data[i].general.specification.suspensiBelakang,
+                    objek_car["tipeTransmisi"] = data[i].general.specification.tipeTransmisi,
+                    objek_car["tipeGearBox"] = data[i].general.specification.tipeGearBox,
+                    objek_car["dimensiPanjang"] = data[i].general.specification.dimensiPanjang,
+                    objek_car["dimensiSumbuRoda"] = data[i].general.specification.dimensiSumbuRoda,
+                    objek_car["dimensiGroundClearance"] = data[i].general.specification.dimensiGroundClearance,
+                    objek_car["dimensiBerat"] = data[i].general.specification.dimensiBerat,
+                    objek_car["dimensiKargo"] = data[i].general.specification.dimensiKargo,
+                    objek_car["jmlPintu"] = data[i].general.specification.jmlPintu,
+                    objek_car["jmlKuris"] = data[i].general.specification.jmlKuris,
+                    objek_car["img1"] = data[i].general.specification.imgCar.img1,
+                    objek_car["img2"] = data[i].general.specification.imgCar.img2,
+                    objek_car["img3"] = data[i].general.specification.imgCar.img3
+
+                arr_response.push(objek_car);
+
+
+            }
+
+            return  res.json(_.uniqWith(arr_response, _.isEqual));
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: "Error retrieving brand with createAt = " + id
+            });
+        });
+}
+
 exports.findAllByDate =  (req, res) => {
     const createdAt = req.params.createdAt;
 

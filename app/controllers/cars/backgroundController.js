@@ -65,6 +65,17 @@ exports.update = async (req, res) =>{
 exports.findOne = (req, res) => {
     const id = req.params.id;
 
+    console.log(id)
+    Background.findOne({ where:{id}})
+        .then(data => {
+            res.json(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while retrieving general."
+            });
+        });
 
 };
 

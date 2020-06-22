@@ -13,5 +13,7 @@ module.exports = app => {
 
     router.delete("/:id", backgrounds.delete);
 
+    router.get("/:id", backgrounds.findOne)
+
     app.use('/api/backgrounds', router);
 };

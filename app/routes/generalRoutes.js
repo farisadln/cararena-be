@@ -12,6 +12,8 @@ module.exports = app => {
 
     router.delete("/:id", general.delete);
 
+    router.get("/:id", general.findOne)
+
     app.use('/api/general', router);
 
 };

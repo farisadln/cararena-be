@@ -38,6 +38,35 @@ exports.signup = (req, res) => {
   });
 };
 
+exports.createAdmin= (req,res)=>{
+    User.create({
+        username: req.body.username,
+        email: req.body.email,
+        password: bcrypt.hashSync(req.body.password, 8)
+    })
+        .then(user => {
+            if (req.body.role) {
+                Role.findAll({
+                    where: {
+                        name: {
+                            [Op.or]: req.body.role
+                        }
+                    }
+                }).then(role => {
+                    user.setRole(role).then(() => {
+                        res.send({ message : "User was registered successfully!"})
+                    });
+                });
+            } else {
+                user.setRole([2]).then(() => {
+                    res.send({ message: "User was registered successfully!" });
+                });
+            }
+        }).catch(err => {
+        res.status(500).send({ message: err.message });
+    });
+};
+
 exports.findAll= (req,res)=>{
     const username = req.query.username;
     let condition = username ? { username: { [Op.like]: `%${username}%` } } : null;

@@ -19,13 +19,18 @@ module.exports = function(app) {
         controller.signup
     );
 
+    app.post(
+        "/api/auth/createAdmin/",
+        controller.createAdmin
+    )
+
     app.post("/api/auth/signin", controller.signin);
 
     app.put("/api/auth/update/:username", controller.changePassword);
 
     app.get("/api/auth/user/:username", controller.findUser);
 
-    app.get("/api/auth/user", controller.findAll)
+        app.get("/api/auth/user", controller.findAll)
 
 
 };

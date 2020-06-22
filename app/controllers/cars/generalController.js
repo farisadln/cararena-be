@@ -2,9 +2,12 @@ const db = require('../../models');
 const _ = require('lodash');
 
 const Op = db.sequelize.Op;
-const General = db.general;
-const Review = db.review;
 
+const Review = db.review;
+const General = db.general;
+const Specification = db.specification;
+const Brand = db.brand;
+const ImgCar = db.imgCar;
 exports.create =  async (req, res) => {
 
     const generalSpecs = new General({
@@ -71,6 +74,23 @@ exports.findCarReview =  (req, res) => {
                     err.message || "Some error occurred while retrieving review."
             });
         });
+};
+
+exports.findOne = (req, res) => {
+    const id = req.params.id;
+
+    console.log(id)
+    General.findOne({ where:{id}})
+        .then(data => {
+            res.json(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while retrieving general."
+            });
+        });
+
 };
 
 

@@ -12,6 +12,7 @@ module.exports = app => {
 
     router.delete('/:id', spec.delete);
 
+    router.get('/:id', spec.findOne)
 
     app.use('/api/specification', router);
 
