@@ -12,6 +12,7 @@ module.exports = app => {
 
     router.delete('/:id', carImg.delete);
 
+    router.get('/:id', carImg.findOne)
 
     app.use('/api/img', router);
 
