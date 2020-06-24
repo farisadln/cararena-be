@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2020 at 03:46 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.4
+-- Generation Time: Jun 24, 2020 at 03:56 AM
+-- Server version: 10.4.12-MariaDB
+-- PHP Version: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -60,11 +61,13 @@ CREATE TABLE `brand` (
 --
 
 INSERT INTO `brand` (`id`, `carBrand`, `logoUrl`, `createdAt`) VALUES
-(1, 'Aston Martin', 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/maker/cars/S_aston_martin.png', '2020-04-23'),
-(2, 'Audi', 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/maker/cars/S_audi.png', '2020-04-23'),
-(3, 'Bentley', 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/maker/cars/S_bentley.png', '2020-04-23'),
-(4, 'BMW', 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/maker/cars/S_bmw.png', '2020-04-23'),
-(5, 'Daihatsu', 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/maker/cars/S_daihatsu.png', '2020-04-23');
+(1, 'Aston Martin', 'https://imgcdn.oto.com/brandlogo/mobil/aston-martin.png', '2020-04-23'),
+(2, 'Audi', 'https://imgcdn.oto.com/brandlogo/mobil/audi.png', '2020-04-23'),
+(3, 'Bentley', 'https://imgcdn.oto.com/brandlogo/mobil/bentley.png', '2020-04-23'),
+(4, 'BMW', 'https://imgcdn.oto.com/brandlogo/mobil/bmw.png', '2020-04-23'),
+(5, 'Daihatsu', 'https://imgcdn.oto.com/brandlogo/mobil/daihatsu.png', '2020-04-23'),
+(6, 'Honda', 'https://imgcdn.oto.com/brandlogo/mobil/honda.png', '2020-06-24'),
+(7, 'Suzuki', 'https://imgcdn.oto.com/brandlogo/mobil/suzuki.png', '2020-06-24');
 
 -- --------------------------------------------------------
 
@@ -91,7 +94,9 @@ INSERT INTO `general` (`id`, `type`, `hargaOtr`, `createdAt`, `brandId`) VALUES
 (4, 'Audi A8', 'Rp 2,95 Milyar\r\n', '2020-04-20', 2),
 (5, 'BMW i3', 'Rp 1,47 Milyar\r\n', '2020-04-21', 4),
 (6, 'Bentley Continental GT', 'Rp 8 Milyar\r\n', '2020-06-08', 3),
-(7, 'Daihatsu Ayla ', 'Rp 101,65 Juta Rp 159,4 Juta\r\n', '2020-06-10', 5);
+(7, 'Daihatsu Ayla ', 'Rp 101,65 Juta Rp 159,4 Juta\r\n', '2020-06-10', 5),
+(8, 'Honda Brio', 'Rp 146 Juta Rp 199,6 Juta', '2020-06-24', 6),
+(9, 'Suzuki Jimny', 'Rp 372,5 Juta Rp 388 Juta', '2020-06-24', 7);
 
 -- --------------------------------------------------------
 
@@ -119,7 +124,9 @@ INSERT INTO `imgCar` (`id`, `img1`, `img2`, `img3`, `createdAt`, `specificationI
 (4, 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/car_models/Audi_A8/6/exterior/exterior_2M_1.jpg', '-', '-', '2020-04-23', 3),
 (5, 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/car_models/BMW_i3/1/color/01_Capparis-White/2M_1.jpg', '-', '-', '2020-04-23', 5),
 (6, 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/car_models/Bentley_Continental_GT/3/exterior/exterior_2M_1.jpg', '-', '-', '2020-04-23', 6),
-(7, 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/car_models/Daihatsu_Alya/3/color/01_Ultra-Black-Solid/2M_1.jpg', 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/car_models/Daihatsu_Alya/3/color/02_Dark-Grey-Metallic/2M_1.jpg', '-', '2020-04-23', 7);
+(7, 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/car_models/Daihatsu_Alya/3/color/01_Ultra-Black-Solid/2M_1.jpg', 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/car_models/Daihatsu_Alya/3/color/02_Dark-Grey-Metallic/2M_1.jpg', '-', '2020-04-23', 7),
+(8, 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/car_models/Daihatsu_Alya/3/color/01_Ultra-Black-Solid/2M_1.jpg', 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/car_models/Daihatsu_Alya/3/color/02_Dark-Grey-Metallic/2M_1.jpg', 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/car_models/Daihatsu_Alya/3/color/03_Icy-White-Solid/2M_1.jpg', '2020-06-24', 8),
+(9, 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/car_models/Suzuki_Jimny/4/color/01_Green/2M_1.jpg', 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/car_models/Suzuki_Jimny/4/color/02_Blue/2M_1.jpg', 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/car_models/Suzuki_Jimny/4/color/03_Brown/2M_1.jpg', '2020-06-24', 9);
 
 -- --------------------------------------------------------
 
@@ -210,7 +217,9 @@ INSERT INTO `specification` (`id`, `kapasistasMesin`, `jmlSilinder`, `jmlKatup`,
 (4, '2995', '6\r\n', '24', 'AWD', '340 / 5000-6400\r\n', '500 / 1370-4500\r\n', 'Bensin', '85', '285', '45', 'R21', 'Independent multi-link\r\n', 'Independent, spring multi-link with stabilizer\r\n', 'Otomatis', '8-Triptronic\r\n', '4986', '1995', '1705', '2995', '-', '2095', '605', '5', '5', '2020-04-23', 3),
 (5, '-', '-', '-', 'RWD', '102 / 4,800\r\n', '270 / -\r\n', 'Listrik', '-', '175', '55', 'R20', 'McPherson', 'Multi-link independent\r\n', 'Otomatis', '-', '4006', '1791', '1590', '2570', '131', '1290', '260', '4', '5', '2020-04-23', 5),
 (6, '5950', '12', '48', 'AWD', '635/6000', '900/1350-4500', 'Bensin', '90', '265', '40', 'R21', 'Independent, spring, Pneumatic elastic element	', 'Multi-link independent, Pneumatic elastic element	', 'Otomatis', '8-Speed	', '4805', '2187', '1405', '2851', '-', '2244', '358', '2', '4', '2020-04-23', 6),
-(7, '998', '3', '12', 'FWD', '65/6.000	', '86/3.600	', 'Bensin', '33', '155', '80', 'R13', 'McPherson Struts	', 'Semi Independent Torsion Axle Beam	', 'Manual', '5-Speed	', '3640', '1520', '2455', '180', '180', '770', '-', '5', '5', NULL, 7);
+(7, '998', '3', '12', 'FWD', '65/6.000	', '86/3.600	', 'Bensin', '33', '155', '80', 'R13', 'McPherson Struts	', 'Semi Independent Torsion Axle Beam	', 'Manual', '5-Speed	', '3640', '1520', '2455', '180', '180', '770', '-', '5', '5', NULL, 7),
+(8, '998', '3', '12', 'FWD', '65/6.000', '86/3.600	', 'Bensin', '33	', '155', '80', 'R13', 'McPherson Struts	', 'Semi Independent Torsion Axle Beam	', 'Manual', '5-Speed	', '3640', '1600', '1520', '2455', '180', '770', '-', '5', '5	', '2020-06-24', 8),
+(9, '1462', '4', '16	', 'AWD', '102 / 6000	', '130 / 4000	', 'Bensin', '40	', '195', '80', 'R15', '3-Link Rigid Axle with Coil Spring', '3-Link Rigid Axle with Coil Spring	', 'Manual', '5-Speed	', '3625	', '1642	', '1720	', '2250', '210	', '-', '-', '5', '4', '2020-06-24', 9);
 
 -- --------------------------------------------------------
 
@@ -252,7 +261,7 @@ CREATE TABLE `userRole` (
 --
 
 INSERT INTO `userRole` (`createdAt`, `updatedAt`, `roleId`, `userId`) VALUES
-('2020-06-10 13:01:58', '2020-06-10 13:01:58', 1, 1);
+('2020-06-10 13:01:58', '2020-06-10 13:01:58', 2, 1);
 
 --
 -- Indexes for dumped tables
@@ -331,19 +340,19 @@ ALTER TABLE `background`
 -- AUTO_INCREMENT for table `brand`
 --
 ALTER TABLE `brand`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `general`
 --
 ALTER TABLE `general`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `imgCar`
 --
 ALTER TABLE `imgCar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `review`
@@ -355,7 +364,7 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `specification`
 --
 ALTER TABLE `specification`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `user`
