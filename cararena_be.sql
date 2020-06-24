@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 24, 2020 at 03:56 AM
+-- Generation Time: Jun 24, 2020 at 07:19 AM
 -- Server version: 10.4.12-MariaDB
 -- PHP Version: 7.3.11
 
@@ -36,13 +36,6 @@ CREATE TABLE `background` (
   `createdAt` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `background`
---
-
-INSERT INTO `background` (`id`, `url_img1`, `url_img2`, `url_img3`, `createdAt`) VALUES
-(1, 'https://d2pa5gi5n2e1an.cloudfront.net/webp/service/id/images/article/10292_ID/LMY_summary.jpg', 'https://d2pa5gi5n2e1an.cloudfront.net/webp/service/id/images/article/10280_ID/LMY_summary.jpg', 'https://d2pa5gi5n2e1an.cloudfront.net/webp/service/id/images/article/10270_ID/LMY_summary.jpg', '2020-06-10');
-
 -- --------------------------------------------------------
 
 --
@@ -55,19 +48,6 @@ CREATE TABLE `brand` (
   `logoUrl` varchar(255) NOT NULL,
   `createdAt` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `brand`
---
-
-INSERT INTO `brand` (`id`, `carBrand`, `logoUrl`, `createdAt`) VALUES
-(1, 'Aston Martin', 'https://imgcdn.oto.com/brandlogo/mobil/aston-martin.png', '2020-04-23'),
-(2, 'Audi', 'https://imgcdn.oto.com/brandlogo/mobil/audi.png', '2020-04-23'),
-(3, 'Bentley', 'https://imgcdn.oto.com/brandlogo/mobil/bentley.png', '2020-04-23'),
-(4, 'BMW', 'https://imgcdn.oto.com/brandlogo/mobil/bmw.png', '2020-04-23'),
-(5, 'Daihatsu', 'https://imgcdn.oto.com/brandlogo/mobil/daihatsu.png', '2020-04-23'),
-(6, 'Honda', 'https://imgcdn.oto.com/brandlogo/mobil/honda.png', '2020-06-24'),
-(7, 'Suzuki', 'https://imgcdn.oto.com/brandlogo/mobil/suzuki.png', '2020-06-24');
 
 -- --------------------------------------------------------
 
@@ -82,21 +62,6 @@ CREATE TABLE `general` (
   `createdAt` date DEFAULT NULL,
   `brandId` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `general`
---
-
-INSERT INTO `general` (`id`, `type`, `hargaOtr`, `createdAt`, `brandId`) VALUES
-(1, 'Aston Martin DB11', 'Rp 4,33 Milyar Rp 7,7 Milyar\r\n', '2020-04-01', 1),
-(2, 'Aston Martin Vantage', 'Rp 4,5 Milyar', '2020-04-02', 1),
-(3, 'Audi Q8', 'Rp 2,46 Milyar\r\n', '2020-04-10', 2),
-(4, 'Audi A8', 'Rp 2,95 Milyar\r\n', '2020-04-20', 2),
-(5, 'BMW i3', 'Rp 1,47 Milyar\r\n', '2020-04-21', 4),
-(6, 'Bentley Continental GT', 'Rp 8 Milyar\r\n', '2020-06-08', 3),
-(7, 'Daihatsu Ayla ', 'Rp 101,65 Juta Rp 159,4 Juta\r\n', '2020-06-10', 5),
-(8, 'Honda Brio', 'Rp 146 Juta Rp 199,6 Juta', '2020-06-24', 6),
-(9, 'Suzuki Jimny', 'Rp 372,5 Juta Rp 388 Juta', '2020-06-24', 7);
 
 -- --------------------------------------------------------
 
@@ -113,21 +78,6 @@ CREATE TABLE `imgCar` (
   `specificationId` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `imgCar`
---
-
-INSERT INTO `imgCar` (`id`, `img1`, `img2`, `img3`, `createdAt`, `specificationId`) VALUES
-(1, 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/car_models/Aston_Martin_DB11/1/color/01_Yellow/2M_1.jpg', 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/car_models/Aston_Martin_DB11/1/color/02_Orange/2M_1.jpg', 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/car_models/Aston_Martin_DB11/1/color/03_Midnight-Blue/2M_1.jpg', '2020-04-23', 1),
-(2, 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/car_models/Aston_Martin_Vantage/6/exterior/exterior_2M_1.jpg', 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/car_models/Aston_Martin_Vantage/6/exterior/exterior_2M_2.jpg', 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/car_models/Aston_Martin_Vantage/6/exterior/exterior_2M_3.jpg', '2020-04-23', 2),
-(3, 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/car_models/Audi_Q8/1/color/01_Carrara-White/2M_1.jpg', '-', '-', '2020-04-23', 4),
-(4, 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/car_models/Audi_A8/6/exterior/exterior_2M_1.jpg', '-', '-', '2020-04-23', 3),
-(5, 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/car_models/BMW_i3/1/color/01_Capparis-White/2M_1.jpg', '-', '-', '2020-04-23', 5),
-(6, 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/car_models/Bentley_Continental_GT/3/exterior/exterior_2M_1.jpg', '-', '-', '2020-04-23', 6),
-(7, 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/car_models/Daihatsu_Alya/3/color/01_Ultra-Black-Solid/2M_1.jpg', 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/car_models/Daihatsu_Alya/3/color/02_Dark-Grey-Metallic/2M_1.jpg', '-', '2020-04-23', 7),
-(8, 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/car_models/Daihatsu_Alya/3/color/01_Ultra-Black-Solid/2M_1.jpg', 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/car_models/Daihatsu_Alya/3/color/02_Dark-Grey-Metallic/2M_1.jpg', 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/car_models/Daihatsu_Alya/3/color/03_Icy-White-Solid/2M_1.jpg', '2020-06-24', 8),
-(9, 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/car_models/Suzuki_Jimny/4/color/01_Green/2M_1.jpg', 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/car_models/Suzuki_Jimny/4/color/02_Blue/2M_1.jpg', 'https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/car_models/Suzuki_Jimny/4/color/03_Brown/2M_1.jpg', '2020-06-24', 9);
-
 -- --------------------------------------------------------
 
 --
@@ -137,17 +87,10 @@ INSERT INTO `imgCar` (`id`, `img1`, `img2`, `img3`, `createdAt`, `specificationI
 CREATE TABLE `review` (
   `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
-  `review` varchar(255) DEFAULT NULL,
+  `review` text DEFAULT NULL,
   `createdAt` date DEFAULT NULL,
   `generalId` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `review`
---
-
-INSERT INTO `review` (`id`, `name`, `review`, `createdAt`, `generalId`) VALUES
-(1, 'fall', 'bagus kok', '2020-06-10', 1);
 
 -- --------------------------------------------------------
 
@@ -167,8 +110,8 @@ CREATE TABLE `role` (
 --
 
 INSERT INTO `role` (`id`, `name`, `createdAt`, `updatedAt`) VALUES
-(1, 'user', '2020-06-10 12:55:24', '2020-06-10 12:55:24'),
-(2, 'admin', '2020-06-10 12:55:24', '2020-06-10 12:55:24');
+(1, 'user', '2020-06-24 07:06:38', '2020-06-24 07:06:38'),
+(2, 'admin', '2020-06-24 07:06:38', '2020-06-24 07:06:38');
 
 -- --------------------------------------------------------
 
@@ -206,21 +149,6 @@ CREATE TABLE `specification` (
   `generalId` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `specification`
---
-
-INSERT INTO `specification` (`id`, `kapasistasMesin`, `jmlSilinder`, `jmlKatup`, `drivetrain`, `maxTenaga`, `maxTorsi`, `jenisBahanBakar`, `kapasitasBahanBakar`, `banLebar`, `banAspekRasio`, `banDiameter`, `suspensiDepan`, `suspensiBelakang`, `tipeTransmisi`, `tipeGearBox`, `dimensiPanjang`, `dimanesiLebar`, `dimensiTinggi`, `dimensiSumbuRoda`, `dimensiGroundClearance`, `dimensiBerat`, `dimensiKargo`, `jmlPintu`, `jmlKuris`, `createdAt`, `generalId`) VALUES
-(1, '5200', '12', '48', 'RWD', '715/6500', '900/1800-5000', 'Bensin', '78', '295', '35', 'R20', 'Independent Double Wishbone', 'Multi-Link Coil springs', 'Otomatis', '8-Speed', '4712', '2146', '1280', '2805', '120', '-', '-', '-', '-', '2020-04-23', 1),
-(2, '3982', '8', '32', 'RWD', '510 / 6000\r\n', '685 / 2000-5000\r\n', 'Bensin', '73', '255', '40', 'R20', 'Double wishbone\r\n', 'Multi-link independent\r\n', 'Otomatis', '8-Speed\r\n', '4465', '2153', '1273\r\n', '2704', '-', '1530', '-', '2', '2', '2020-04-23', 2),
-(3, '2995', '6', '24', 'AWD', '310/5200\r\n', '440/2900\r\n', 'Bensin', '82', '235', '55', 'R18', 'Multi-Link\r\n', 'Multi-Link\r\n', 'Otomatis', '8-Speed\r\n', '5265', '1949', '1460\r\n', '3122', '-', '1855\r\n', '490', '4', '5', '2020-04-23', 4),
-(4, '2995', '6\r\n', '24', 'AWD', '340 / 5000-6400\r\n', '500 / 1370-4500\r\n', 'Bensin', '85', '285', '45', 'R21', 'Independent multi-link\r\n', 'Independent, spring multi-link with stabilizer\r\n', 'Otomatis', '8-Triptronic\r\n', '4986', '1995', '1705', '2995', '-', '2095', '605', '5', '5', '2020-04-23', 3),
-(5, '-', '-', '-', 'RWD', '102 / 4,800\r\n', '270 / -\r\n', 'Listrik', '-', '175', '55', 'R20', 'McPherson', 'Multi-link independent\r\n', 'Otomatis', '-', '4006', '1791', '1590', '2570', '131', '1290', '260', '4', '5', '2020-04-23', 5),
-(6, '5950', '12', '48', 'AWD', '635/6000', '900/1350-4500', 'Bensin', '90', '265', '40', 'R21', 'Independent, spring, Pneumatic elastic element	', 'Multi-link independent, Pneumatic elastic element	', 'Otomatis', '8-Speed	', '4805', '2187', '1405', '2851', '-', '2244', '358', '2', '4', '2020-04-23', 6),
-(7, '998', '3', '12', 'FWD', '65/6.000	', '86/3.600	', 'Bensin', '33', '155', '80', 'R13', 'McPherson Struts	', 'Semi Independent Torsion Axle Beam	', 'Manual', '5-Speed	', '3640', '1520', '2455', '180', '180', '770', '-', '5', '5', NULL, 7),
-(8, '998', '3', '12', 'FWD', '65/6.000', '86/3.600	', 'Bensin', '33	', '155', '80', 'R13', 'McPherson Struts	', 'Semi Independent Torsion Axle Beam	', 'Manual', '5-Speed	', '3640', '1600', '1520', '2455', '180', '770', '-', '5', '5	', '2020-06-24', 8),
-(9, '1462', '4', '16	', 'AWD', '102 / 6000	', '130 / 4000	', 'Bensin', '40	', '195', '80', 'R15', '3-Link Rigid Axle with Coil Spring', '3-Link Rigid Axle with Coil Spring	', 'Manual', '5-Speed	', '3625	', '1642	', '1720	', '2250', '210	', '-', '-', '5', '4', '2020-06-24', 9);
-
 -- --------------------------------------------------------
 
 --
@@ -236,13 +164,6 @@ CREATE TABLE `user` (
   `updatedAt` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`id`, `username`, `email`, `password`, `createdAt`, `updatedAt`) VALUES
-(1, 'fall', 'fall@gmail.com', '$2a$08$TGZEzJglWVMjEbs6/zbJAekehwWh6M4u4Xwa1tui0RST3DnggI9d2', '2020-06-10 13:01:58', '2020-06-10 13:01:58');
-
 -- --------------------------------------------------------
 
 --
@@ -255,13 +176,6 @@ CREATE TABLE `userRole` (
   `roleId` int(11) NOT NULL,
   `userId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `userRole`
---
-
-INSERT INTO `userRole` (`createdAt`, `updatedAt`, `roleId`, `userId`) VALUES
-('2020-06-10 13:01:58', '2020-06-10 13:01:58', 2, 1);
 
 --
 -- Indexes for dumped tables
@@ -334,43 +248,43 @@ ALTER TABLE `userRole`
 -- AUTO_INCREMENT for table `background`
 --
 ALTER TABLE `background`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `brand`
 --
 ALTER TABLE `brand`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `general`
 --
 ALTER TABLE `general`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `imgCar`
 --
 ALTER TABLE `imgCar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `specification`
 --
 ALTER TABLE `specification`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
