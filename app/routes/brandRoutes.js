@@ -18,7 +18,7 @@ module.exports = app => {
 
     router.get("/cars/:id", brand.findOne)
 
-    router.get("/cars/:createdAt", brand.findAllByDate);
+    router.get("/cars/date/:createdAt", brand.findAllByDate);
 
     app.use('/api/brand', router);
 

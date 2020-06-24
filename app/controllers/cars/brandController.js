@@ -134,7 +134,8 @@ exports.findAllByDate =  (req, res) => {
 
     let endDate = moment().subtract(0, 'days').toDate();
     let startDate = req.params.createdAt;
-
+    
+    console.log(endDate)
     Brand.findAll({
         include:[{model:
             General ,
@@ -155,11 +156,10 @@ exports.findAllByDate =  (req, res) => {
             let arr_response = [];
             for (i = 0; i < data.length; i++) {
                 let objek_car = {};
-                objek_car["id"] = data[i].general.id,
+                    objek_car["id"] = data[i].general.id,
                     objek_car["id_brand"] = data[i].id,
                     objek_car["car_brand"] = data[i].carBrand,
                     objek_car["logo_url"] = data[i].logoUrl,
-
                     objek_car["type"] = data[i].general.type,
                     objek_car["harga_otr"] = data[i].general.hargaOtr,
                     objek_car["createAt"] = data[i].general.createdAt,
@@ -189,7 +189,7 @@ exports.findAllByDate =  (req, res) => {
 
                 arr_response.push(objek_car);
 
-
+                console.log(arr_response)
             }
 
             return  res.json(_.uniqWith(arr_response, _.isEqual));
