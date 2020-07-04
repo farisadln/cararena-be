@@ -134,8 +134,9 @@ exports.findAllByDate =  (req, res) => {
 
     let endDate = moment().subtract(0, 'days').toDate();
     let startDate = req.params.createdAt;
+
     
-    console.log(endDate)
+    
     Brand.findAll({
         include:[{model:
             General ,
