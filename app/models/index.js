@@ -31,6 +31,7 @@ db.imgCar = require('./cars/imgCarModel')(sequelize, Sequelize);
 db.general = require('./cars/generalModel')(sequelize, Sequelize);
 db.background = require('./cars/backgroundModel')(sequelize, Sequelize);
 db.review = require('./cars/reviewCarModel')(sequelize, Sequelize);
+db.url = require('./urlScrap/urlModel')(sequelize,Sequelize);
 
 // user relation
 db.role.belongsToMany(db.user, {
