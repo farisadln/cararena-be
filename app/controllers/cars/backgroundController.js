@@ -7,7 +7,8 @@ exports.create = async (req,res)=>{
     const background = new Background ({
         url_img1: req.body.url_img1,
         url_img2: req.body.url_img2,
-        url_img3: req.body.url_img3
+        url_img3: req.body.url_img3,
+        logActivity : "fall"
     });
     try {
         const saveBackground = await background.save();

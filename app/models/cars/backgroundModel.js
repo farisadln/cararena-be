@@ -18,6 +18,11 @@ module.exports = (sequelize, Sequelize) =>{
             defaultValue: "-",
             type: Sequelize.STRING
         },
+        logActivity: {
+            defaultValue:"-",
+            allowNull: true,
+            type: Sequelize.STRING(64)
+        },
         createdAt : {
             type: Sequelize.DATEONLY,
         }

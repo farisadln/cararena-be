@@ -1,5 +1,6 @@
 const db = require('../../models');
 const _ = require('lodash');
+const { general } = require('../../models');
 
 const Op = db.sequelize.Op;
 
@@ -9,17 +10,20 @@ const Specification = db.specification;
 const Brand = db.brand;
 const ImgCar = db.imgCar;
 exports.create =  async (req, res) => {
-
+ 
+  
     const generalSpecs = new General({
         type:req.body.type,
         hargaOtr: req.body.hargaOtr,
-        brandId : req.body.brandId
+        brandId : req.body.brandId,
+        logActivity : "fall"
 
 
     });
     try {
         const saveGeneralSpecs = await generalSpecs.save();
         res.send(saveGeneralSpecs);
+        
     } catch (err) {
         res.status(400)
             .send(err);

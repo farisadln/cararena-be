@@ -20,6 +20,7 @@ exports.create =  async (req, res) => {
         id:req.body.id,
         carBrand: req.body.carBrand,
         logoUrl: req.body.logoUrl,
+        logActivity : "fall"
 
     });
     try {
@@ -84,6 +85,7 @@ exports.findOne = (req,res) =>{
             for (i = 0; i < data.length; i++) {
                 let objek_car = {};
                     objek_car["id"] = data[i].general.id,
+                    objek_car["logActivity"] = data[i].general.logActivity,
                     objek_car["id_brand"] = data[i].id,
                     objek_car["car_brand"] = data[i].carBrand,
                     objek_car["logo_url"] = data[i].logoUrl,
@@ -124,7 +126,7 @@ exports.findOne = (req,res) =>{
         })
         .catch(err => {
             res.status(500).send({
-                message: "Error retrieving brand with createAt = " + id
+                message: "Error retrieving brand with id = " + id
             });
         });
 }
@@ -159,6 +161,7 @@ exports.findAllByDate =  (req, res) => {
                 let objek_car = {};
                     objek_car["id"] = data[i].general.id,
                     objek_car["id_brand"] = data[i].id,
+                    objek_car["logActivity"] = data[i].general.logActivity,
                     objek_car["car_brand"] = data[i].carBrand,
                     objek_car["logo_url"] = data[i].logoUrl,
                     objek_car["type"] = data[i].general.type,
@@ -227,6 +230,7 @@ exports.findAll = async (req,res) => {
             for (i = 0; i < data.length; i++) {
                 let objek_car = {};
                 objek_car["id"] = data[i].general.id,
+                objek_car["logActivity"] = data[i].general.logActivity,
                     objek_car["id_brand"] = data[i].id,
                     objek_car["car_brand"] = data[i].carBrand,
                     objek_car["logo_url"] = data[i].logoUrl,

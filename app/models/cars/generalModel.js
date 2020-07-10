@@ -7,10 +7,15 @@ module.exports = (sequelize, Sequelize) =>{
             type: Sequelize.INTEGER
         },
         type:{
-            type: Sequelize.STRING
+            type: Sequelize.STRING(100)
         },
         hargaOtr: {
-            type: Sequelize.STRING
+            type: Sequelize.STRING(100)
+        },
+        logActivity: {
+            defaultValue:"-",
+            allowNull: true,
+            type: Sequelize.STRING(64)
         },
         createdAt : {
             type: Sequelize.DATEONLY

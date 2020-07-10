@@ -32,6 +32,7 @@ exports.create = async (req, res) => {
         dimensiKargo: req.body.dimensiKargo,
         jmlPintu: req.body.jmlPintu,
         jmlKuris: req.body.jmlKuris,
+        logActivity : "fall",
         generalId : req.body.generalId
 
     });

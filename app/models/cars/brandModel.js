@@ -8,11 +8,16 @@ module.exports = (sequelize, Sequelize) =>{
         },
         carBrand:{
             allowNull:false,
-            type: Sequelize.STRING
+            type: Sequelize.STRING(100)
         },
         logoUrl: {
             allowNull: false,
             type: Sequelize.STRING
+        },
+        logActivity: {
+            defaultValue:"-",
+            allowNull: true,
+            type: Sequelize.STRING(64)
         },
         createdAt : {
             type: Sequelize.DATEONLY,

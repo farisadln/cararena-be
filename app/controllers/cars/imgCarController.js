@@ -9,6 +9,7 @@ exports.create =  async (req, res) => {
         img1:req.body.img1,
         img2: req.body.img2,
         img3: req.body.img3,
+        logActivity : req.body.logActivity,
         specificationId : req.body.specificationId
 
     });
